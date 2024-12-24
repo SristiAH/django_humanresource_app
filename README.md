@@ -2,8 +2,10 @@ Step I: Setting Up the Development Environment
 
 For Windows, download Python from Python.org website.
 Verify whether it is installed by typing in the command prompt:
-		python --version
-			Python 3.12.4
+```bash
+	python --version
+```
+		Python 3.12.4
 
 	To create Python virtual environment, type the command:
 		python -m venv myenv
