@@ -5,14 +5,14 @@ Verify whether it is installed by typing in the command prompt:
 ```bash
 	python --version
 ```
-		Python 3.12.4
-
-	To create Python virtual environment, type the command:
-		python -m venv myenv
-
-	Command to activate the virtual environment:
-		.\myenv\Scripts\activate
-       
+To create Python virtual environment, type the command:
+```bash
+	python -m venv myenv
+```
+Command to activate the virtual environment:
+```bash
+	.\myenv\Scripts\activate
+```
 
 Step II: Installing Django
 
