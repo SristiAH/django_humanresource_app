@@ -187,7 +187,7 @@ urlpatterns = [
 
 ### Step XVI: Create HTML templates for each of the views inside a templates directory inside the humanresource app. 
 
-Inside staff_list.html
+##### Inside staff_list.html
 ```bash
 <h1>Staff Members</h1>
 <ul>
@@ -200,7 +200,7 @@ Inside staff_list.html
 <a href="{% url 'staff_create' %}">Add New Staff Member</a>
 ```
 
-Inside staff_detail.html
+##### Inside staff_detail.html
 ```bash
 <h1>{{ staff.FirstName }} {{ staff.LastName }}</h1>
 <p>Email: {{ staff.EmailID }}</p>
@@ -211,7 +211,7 @@ Inside staff_detail.html
 <a href="{% url 'staff_list' %}">Back to List</a>
 ```
 
-Inside staff_form.html
+##### Inside staff_form.html
 ```bash
 {% if view.object %}
     <h1>Update Staff</h1>
@@ -226,7 +226,7 @@ Inside staff_form.html
 <a href="{% url 'staff_list' %}">Cancel</a>
 ```
 
-Inside staff_confirm_delete.html
+##### Inside staff_confirm_delete.html
 ```bash
 <h1>Confirm Delete</h1>
 <p>Are you sure you want to delete {{ object.FirstName }} {{ object.LastName }}?</p>
