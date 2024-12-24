@@ -1,0 +1,11 @@
+{% if view.object %}
+    <h1>Update Staff</h1>
+{% else %}
+    <h1>Create Staff</h1>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'staff_list' %}">Cancel</a>

@@ -1,0 +1,7 @@
+<h1>{{ staff.FirstName }} {{ staff.LastName }}</h1>
+<p>Email: {{ staff.EmailID }}</p>
+<p>Contact: {{ staff.ContactNo }}</p>
+<p>Department: {{ staff.Department.DepartmentName|default:"N/A" }}</p>
+<a href="{% url 'staff_update' staff.id %}">Edit</a>
+<a href="{% url 'staff_delete' staff.id %}">Delete</a>
+<a href="{% url 'staff_list' %}">Back to List</a>

@@ -1,0 +1,13 @@
+<h1>Staff Members</h1>
+<ul>
+    {% for staff in staff_members %}
+        {% if staff.id %}
+            <li>
+                <a href="{% url 'staff_detail' staff.id %}">{{ staff.FirstName }} {{ staff.LastName }}</a>
+            </li>
+        {% else %}
+            <li>Error: Staff {{ staff.FirstName }} has no ID.</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+<a href="{% url 'staff_create' %}">Add New Staff Member</a>
