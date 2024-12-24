@@ -94,7 +94,7 @@ class Department(models.Model):
 
 class Staff(models.Model): 
     FirstName = models.CharField(max_length=50, null=False)  
-    MiddleName = models.CharField(max_length=50, null=True)  
+    MiddleName = models.CharField(max_length=50, null=True, blank=True)  
     LastName = models.CharField(max_length=50, null=False)  
     EmailID = models.EmailField(max_length=50, null=False)  
     ContactNo = models.CharField(max_length=10, null=False)  
