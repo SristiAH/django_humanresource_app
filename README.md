@@ -1,4 +1,4 @@
-## Step I: Setting Up the Development Environment
+### Step I: Setting Up the Development Environment
 
 For Windows, download Python from Python.org website.
 Verify whether it is installed by typing in the command prompt:
@@ -14,7 +14,7 @@ Command to activate the virtual environment:
 .\myenv\Scripts\activate
 ```
 
-## Step II: Installing Django
+### Step II: Installing Django
 Upgrade pip
 ```bash
 python -m pip install --upgrade pip
@@ -24,19 +24,19 @@ Installing Django with pip
 pip install Django
 ```
 
-## Step III: Inside the command prompt, type the following:
+### Step III: Inside the command prompt, type the following:
 ```bash		
 Django-admin startproject Directory
 ```
 
-## Step IV: Download and install MySQL Workbench
+### Step IV: Download and install MySQL Workbench
 
-## Step V: Inside the command prompt, type the following command to install the Python MySQL driver
+### Step V: Inside the command prompt, type the following command to install the Python MySQL driver
 ```bash
 pip install mysqlclient
 ```
 
-## Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
+### Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
 ```bash
 create database mydb;
 ```
@@ -54,18 +54,18 @@ DATABASES = {
 }
 ```
 
-## Step VII: Applying initial database migrations
+### Step VII: Applying initial database migrations
 After navigating to the project's root directory, run the following inside command prompt :
 ```bash
 python manage.py migrate
 ```
 
-## Step VIII: Run the following command:
+### Step VIII: Run the following command:
 ```bash
 python manage.py startapp humanresource
 ```
 
-## Step IX: Creating the application entry in settings.py
+### Step IX: Creating the application entry in settings.py
 Add the application configuration entry in INSTALLED_APPS.
 ```bash
 INSTALLED_APPS = [
@@ -79,7 +79,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-## Step X: Inside models.py
+### Step X: Inside models.py
 ```bash
 from django.db import models
 
@@ -108,17 +108,17 @@ class Staff(models.Model):
         return f"{self.FirstName} {self.LastName}"
 ```
 
-## Step XI: Creating the migration file:
+### Step XI: Creating the migration file:
 ```bash
 python manage.py makemigrations humanresource
 ```
 
-## Step XII: Apply database changes
+### Step XII: Apply database changes
 ```bash
 python manage.py migrate
 ```
 
-## Step XIII: Inside views.py
+### Step XIII: Inside views.py
 ```bash
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
@@ -160,7 +160,7 @@ class StaffDeleteView(DeleteView):
     success_url = reverse_lazy('staff_list')
 ```
 
-## Step XIV: Create a file urls.py inside the humanresource application and write the below code:
+### Step XIV: Create a file urls.py inside the humanresource application and write the below code:
 ```bash
 from django.urls import path
 from django.views.generic import TemplateView
@@ -174,7 +174,7 @@ urlpatterns = [
 ]
 ```
 
-## Step XV: Update urls.py in the Project Directory
+### Step XV: Update urls.py in the Project Directory
 ```bash
 from django.contrib import admin
 from django.urls import path, include
@@ -185,7 +185,7 @@ urlpatterns = [
 ]
 ```
 
-## Step XVI: Create HTML templates for each of the views inside a templates directory inside the humanresource app. 
+### Step XVI: Create HTML templates for each of the views inside a templates directory inside the humanresource app. 
 
 Inside staff_list.html
 ```bash
@@ -237,7 +237,7 @@ Inside staff_confirm_delete.html
 <a href="{% url 'staff_list' %}">Cancel</a>
 ```
 
-## Step XVII: Adding Department names
+### Step XVII: Adding Department names
 Inside command prompt
 ```bash
 python manage.py shell
@@ -249,7 +249,7 @@ Department.objects.create(DepartmentName="IT")
 Department.objects.create(DepartmentName="Finance")
 ```
 
-## Step XVIII: Run the Development Server
+### Step XVIII: Run the Development Server
 ```bash
 python manage.py runserver
 ```
