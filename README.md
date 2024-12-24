@@ -36,7 +36,7 @@ Django-admin startproject Directory
 pip install mysqlclient
 ```
 
-### Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
+### Step VI: Configure MySQL workbench and create a database in the workbench by typing the following command:
 ```bash
 create database mydb;
 ```
