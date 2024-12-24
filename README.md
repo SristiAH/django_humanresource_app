@@ -7,38 +7,41 @@ python --version
 ```
 To create Python virtual environment, type the command:
 ```bash
-	python -m venv myenv
+python -m venv myenv
 ```
 Command to activate the virtual environment:
 ```bash
-	.\myenv\Scripts\activate
+.\myenv\Scripts\activate
 ```
 
 Step II: Installing Django
-
-	 Upgrade pip
-		python -m pip install --upgrade pip
-
-	 Installing Django with pip
-		pip install Django
-
-	 Checking Django installation
-		python –m django –-version
-			5.1.2
+Upgrade pip
+```bash
+python -m pip install --upgrade pip
+```
+Installing Django with pip
+```bash
+pip install Django
+```
 
 Step III: Inside the command prompt, type the following:
-		Django-admin startproject Directory
+```bash		
+Django-admin startproject Directory
+```
 
 Step IV: Download and install MySQL Workbench
 
 Step V: Inside the command prompt, type the following command to install the Python MySQL driver
-		pip install mysqlclient
+```bash
+pip install mysqlclient
+```
 
 Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
-		create database mydb;
-	 
-	 Update DATABASES setting inside settings.py file
-
+```bash
+create database mydb;
+```
+Update DATABASES setting inside settings.py file
+```bash
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -49,12 +52,14 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+```
 
 Step VII: Applying initial database migrations
-	  
-	  After navigating to the project's root directory, run the following inside command prompt :
 
-		python manage.py migrate
+	  After navigating to the project's root directory, run the following inside command prompt :
+```bash
+python manage.py migrate
+```
 
 Step VIII: Run the following command:
 		python manage.py startapp humanresource  
