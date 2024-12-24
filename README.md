@@ -1,4 +1,4 @@
-Step I: Setting Up the Development Environment
+## Step I: Setting Up the Development Environment
 
 For Windows, download Python from Python.org website.
 Verify whether it is installed by typing in the command prompt:
@@ -14,7 +14,7 @@ Command to activate the virtual environment:
 .\myenv\Scripts\activate
 ```
 
-Step II: Installing Django
+## Step II: Installing Django
 Upgrade pip
 ```bash
 python -m pip install --upgrade pip
@@ -24,19 +24,19 @@ Installing Django with pip
 pip install Django
 ```
 
-Step III: Inside the command prompt, type the following:
+## Step III: Inside the command prompt, type the following:
 ```bash		
 Django-admin startproject Directory
 ```
 
-Step IV: Download and install MySQL Workbench
+## Step IV: Download and install MySQL Workbench
 
-Step V: Inside the command prompt, type the following command to install the Python MySQL driver
+## Step V: Inside the command prompt, type the following command to install the Python MySQL driver
 ```bash
 pip install mysqlclient
 ```
 
-Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
+## Step VI: Configure MySQL workbench and create a database using the workbench by typing the following command:
 ```bash
 create database mydb;
 ```
@@ -54,20 +54,20 @@ DATABASES = {
 }
 ```
 
-Step VII: Applying initial database migrations
-
-	  After navigating to the project's root directory, run the following inside command prompt :
+## Step VII: Applying initial database migrations
+After navigating to the project's root directory, run the following inside command prompt :
 ```bash
 python manage.py migrate
 ```
 
-Step VIII: Run the following command:
-		python manage.py startapp humanresource  
+## Step VIII: Run the following command:
+```bash
+python manage.py startapp humanresource
+```
 
-Step IX: Creating the application entry in settings.py
-
-	 Add the application configuration entry in INSTALLED_APPS.
-
+## Step IX: Creating the application entry in settings.py
+Add the application configuration entry in INSTALLED_APPS.
+```bash
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,9 +77,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'humanresource',
 ]
+```
 
-Step X: Inside models.py
-
+## Step X: Inside models.py
+```bash
 from django.db import models
 
 # Create your models here.
@@ -105,15 +106,20 @@ class Staff(models.Model):
 
     def __str__(self):
         return f"{self.FirstName} {self.LastName}"
+```
 
+## Step XI: Creating the migration file:
+```bash
+python manage.py makemigrations humanresource
+```
 
-Step XI: Creating the migration file:
-		python manage.py makemigrations humanresource
-Step XII: Apply database changes
-		python manage.py migrate
+## Step XII: Apply database changes
+```bash
+python manage.py migrate
+```
 
-Step XIII: Inside views.py
-
+## Step XIII: Inside views.py
+```bash
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -152,10 +158,10 @@ class StaffDeleteView(DeleteView):
     model = Staff
     template_name = "staff_confirm_delete.html"  
     success_url = reverse_lazy('staff_list')
+```
 
-
-Step XIV: Create a file urls.py inside the humanresource application and write the below code:
-
+## Step XIV: Create a file urls.py inside the humanresource application and write the below code:
+```bash
 from django.urls import path
 from django.views.generic import TemplateView
 from .views import StaffListView, StaffDetailView, StaffCreateView, StaffUpdateView, StaffDeleteView
@@ -166,9 +172,10 @@ urlpatterns = [
     path('staff/<int:pk>/update/', StaffUpdateView.as_view(), name='staff_update'),
     path('staff/<int:pk>/delete/', StaffDeleteView.as_view(), name='staff_delete'),
 ]
+```
 
-Step XV: Update urls.py in the Project Directory
-
+## Step XV: Update urls.py in the Project Directory
+```bash
 from django.contrib import admin
 from django.urls import path, include
 
@@ -176,16 +183,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('humanresource.urls')),  
 ]
+```
 
-Step XVI: Create HTML templates for each of the views inside a templates directory inside the humanresource app. 
-
-	  staff_list.html
-	  staff_detail.html
-	  staff_form.html
-	  staff_confirm_delete.html
+## Step XVI: Create HTML templates for each of the views inside a templates directory inside the humanresource app. 
 
 Inside staff_list.html
-
+```bash
 <h1>Staff Members</h1>
 <ul>
     {% for staff in staff_members %}
@@ -195,9 +198,10 @@ Inside staff_list.html
     {% endfor %}
 </ul>
 <a href="{% url 'staff_create' %}">Add New Staff Member</a>
+```
 
 Inside staff_detail.html
-
+```bash
 <h1>{{ staff.FirstName }} {{ staff.LastName }}</h1>
 <p>Email: {{ staff.EmailID }}</p>
 <p>Contact: {{ staff.ContactNo }}</p>
@@ -205,9 +209,10 @@ Inside staff_detail.html
 <a href="{% url 'staff_update' staff.id %}">Edit</a>
 <a href="{% url 'staff_delete' staff.id %}">Delete</a>
 <a href="{% url 'staff_list' %}">Back to List</a>
+```
 
 Inside staff_form.html
-
+```bash
 {% if view.object %}
     <h1>Update Staff</h1>
 {% else %}
@@ -219,10 +224,10 @@ Inside staff_form.html
     <button type="submit">Save</button>
 </form>
 <a href="{% url 'staff_list' %}">Cancel</a>
-
+```
 
 Inside staff_confirm_delete.html
-
+```bash
 <h1>Confirm Delete</h1>
 <p>Are you sure you want to delete {{ object.FirstName }} {{ object.LastName }}?</p>
 <form method="post">
@@ -230,19 +235,22 @@ Inside staff_confirm_delete.html
     <button type="submit">Yes, delete</button>
 </form>
 <a href="{% url 'staff_list' %}">Cancel</a>
+```
 
-
-Step XVII: Adding Department names
+## Step XVII: Adding Department names
 Inside command prompt
-	python manage.py shell
-
+```bash
+python manage.py shell
+```
+```bash
 from humanresource.models import Department
 Department.objects.create(DepartmentName="HR")
 Department.objects.create(DepartmentName="IT")
 Department.objects.create(DepartmentName="Finance")
+```
 
-Step XVIII: Run the Development Server
-
+## Step XVIII: Run the Development Server
+```bash
 python manage.py runserver
-
+```
 http://127.0.0.1:8000/staff/ to access the application.
